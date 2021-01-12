@@ -41,6 +41,22 @@ class Business(db.Model):
     def __repr__(self):
         return f"Business {self.name}"
 
+    # Helper methods
+    def get_tags(self):
+        return [tag.name for tag in self.tags.all()]
+
+    def get_payment_methods(self):
+        return [{"id": pm.id, "name": pm.name} for pm in self.payment_methods.all()]
+
+    def get_categories(self):
+        return [{"id": ct.id, "name": ct.name} for ct in self.categories.all()]
+
+    def get_schedules(self):
+        return [{"id": sc.id, "day": sc.day, "open": sc.open, "close": sc.close} for sc in self.schedules.all()]
+
+    def get_languages(self):
+        return [{"id": lg.id, "language": lg.language} for lg in self.languages.all()]
+
     def to_dict(self):
         return {
             "name": self.name,
@@ -48,5 +64,12 @@ class Business(db.Model):
             "address": self.address,
             "phone": self.phone,
             "website": self.website,
-            "logo": self.logo
+            "logo": self.logo,
+            "tags": self.get_tags(),
+            "city": self.cities.first().name,
+            "country": self.cities.first().country,
+            "zip_code": self.cities.first().zip_code,
+            "categories": self.get_categories(),
+            "schedules": self.get_schedules(),
+            "languages": self.get_languages(),
         }
