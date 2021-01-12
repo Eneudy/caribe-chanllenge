@@ -23,9 +23,9 @@ class User(db.Model):
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
 
-    @staticmethod
-    def create_user(name, email, password, **kwargs):
-        user = User(name=name, email=email, password=password, **kwargs)
+    @classmethod
+    def create_user(cls, name, email, password, **kwargs):
+        user = cls(name=name, email=email, password=password, **kwargs)
         db.session.add(user)
         db.session.commit()
     

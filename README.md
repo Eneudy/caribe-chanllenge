@@ -2,16 +2,22 @@
 
 ## ToDo
 
-- Send email in background with https://flask-rq2.readthedocs.io/en/latest/
-- Add missing database models
+- Send email in background (rq)
 - Add Listing Module
-- Better code structure
+- Refactor models (many to many relationships)
 - Deploy to production
 
 ## Installation
 
 ```bash
 pip install -r requirements.txt
+```
+
+## Database (commands)
+
+```bash
+flask create-db
+flask feed-db
 ```
 
 ## Run Dev
