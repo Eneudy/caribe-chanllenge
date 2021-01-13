@@ -18,7 +18,7 @@ def register(app):
         click.echo("Database created")
 
     @app.cli.command("feed-db")
-    def create_db():
+    def feed_db():
         """Feed database."""
         insert_data()
         click.echo("Data inserted")

@@ -3,8 +3,8 @@
 ## ToDo
 
 - Send email in background (rq)
-- Add Listing Module
 - Refactor models (many to many relationships)
+- Add Listing Module requirements
 - Deploy to production
 
 ## Installation
